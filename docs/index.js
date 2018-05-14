@@ -69,14 +69,14 @@ async function usb() {
     let conf_match = usb_conf_find(device, { classCode: 255, subclassCode: 66, protocolCode: 1 });
     console.log(conf_match)
     let op = await device.open()
-    console.log("Connected")
+    console.log("Opened")
     console.log(op)
-    await device.selectConfiguration(conf_match.conf.selectConfiguration)
+    await device.selectConfiguration(conf_match.conf.configurationValue)
     console.log("A")
     await device.claimInterface(conf_match.intf.interfaceNumber)
     console.log("B")
+	await device.selectAlternateInterface(conf_match.intf.interfaceNumber, conf_match.alt.alternateSetting))
     //device.selectConfiguration(conf_match.conf.selectConfiguration)
-    console.log("Opened")
     console.log(device.opened)
 }
 function usb_test() {
