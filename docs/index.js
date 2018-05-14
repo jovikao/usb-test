@@ -75,7 +75,7 @@ async function usb() {
     console.log("A")
     await device.claimInterface(conf_match.intf.interfaceNumber)
     console.log("B")
-	await device.selectAlternateInterface(conf_match.intf.interfaceNumber, conf_match.alt.alternateSetting))
+	await device.selectAlternateInterface(conf_match.intf.interfaceNumber, conf_match.alt.alternateSetting)
     //device.selectConfiguration(conf_match.conf.selectConfiguration)
     console.log(device.opened)
 }
