@@ -65,6 +65,7 @@ async function usb() {
     let device = await navigator.usb.requestDevice({ filters: filters })
     console.log("Device requested")
     console.log(device)
+    console.log(device.configurations)
     let conf_match = usb_conf_find(device, { classCode: 255, subclassCode: 66, protocolCode: 1 });
     console.log(conf_match)
     let op = await device.open()
